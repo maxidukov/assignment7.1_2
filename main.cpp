@@ -36,10 +36,10 @@ int main()
     //PRINT OUT FIRST LINE
     std::printf("%10s", " ");
     for(int i = 0; i<4; i++){
-        std::printf("%13.0f", pow(10,3+i));
+        std::printf("%14.0f", pow(10,3+i));
     }
     std::cout << std::endl;
-    //PRINT OUT LINES WITH SECOND COUNTS
+    //PRINT OUT LINES WITH MILLISECOND COUNTS
     for(auto thrnum : thrnums){
         std::printf("%2d потоков", thrnum);
         for(int i = 0; i<4; i++){
@@ -59,7 +59,7 @@ int main()
             res = vecsum_parr(v1, v2, thrnum);
             auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double, std::milli> time = end - start;
-            std::printf("%12fs", time.count());
+            std::printf("%12fms", time.count());
         }
         std::cout << std::endl;
     }
